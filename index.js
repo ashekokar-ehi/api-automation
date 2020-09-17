@@ -21,7 +21,7 @@ scenarios.forEach((scenario) => {
     (axiosInstance.defaults.headers.common["Authorization"] =
       scenario.authToken);
 
-  output[scenario.scenario] = testScenarios(scenario, axiosInstance, promises);
+  output[scenario.scenario] = testScenarios(scenario.testCases, axiosInstance, promises);
 });
 
 Promise.allSettled(promises).then(() => {

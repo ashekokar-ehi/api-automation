@@ -1,9 +1,9 @@
 const parseEndpoint = require("./parse-endpoint");
 const validateResponse = require("./validate-response");
 
-const testScenarios = (scenario, axiosInstance, promises) => {
+const testScenarios = (testCases, axiosInstance, promises) => {
   const scenarioResult = {};
-  scenario.testCases.forEach(({ name, given, when, then }) => {
+  testCases.forEach(({ name, given, when, then, afterIt }) => {
     const tcResult = {};
     tcResult.name = name;
     const type = when.type;
@@ -23,6 +23,8 @@ const testScenarios = (scenario, axiosInstance, promises) => {
       .finally(() => {
         if (isSuccessful) {
           tcResult.result = "success";
+          afterIt &&
+            (tcResult.afterIt = testScenarios(afterIt, axiosInstance, promise));
         } else {
           tcResult.result = "failure";
           tcResult.expected = then.responseBody;
