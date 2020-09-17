@@ -1,5 +1,6 @@
 const parseEndpoint = require("./parse-endpoint");
 const validateResponse = require("./validate-response");
+const validateSchema = require("./validate-schema");
 
 const testScenarios = (testCases, axiosInstance, promises) => {
   const scenarioResult = {};
@@ -14,11 +15,17 @@ const testScenarios = (testCases, axiosInstance, promises) => {
     const promise = axiosInstance[type](endpoint, given.bodyParams)
       .then((response) => {
         actual = response.data;
-        isSuccessful = validateResponse(
-          then.responseBodyType,
-          response,
-          then.responseBody
-        );
+        if(then.responseBodyType){
+          isSuccessful = validateResponse(
+            then.responseBodyType,
+            response,
+            then.responseBody
+          );
+        }else if(then.responseSchemaType){
+          isSuccessful = then.responseSchemaType === 'matchFull' ? 
+                          validateSchema( response, then.responseBody) : 
+                          validateSchema(then.responseBody, response); 
+        }
       })
       .catch((error) => {
         actual = error.message; // JSON.stringify(error);
