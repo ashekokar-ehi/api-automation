@@ -16,7 +16,9 @@ const validateResponse = (() => {
       if (matchType === "matchFull") {
         isValid = _.isEqual(actualResponse.data, expectedResponse.data);
       } else if (matchType === "contains") {
-        isValid = checkIfContains(actualResponse.data, expectedResponse.data);
+        isValid = actualResponse.data
+          ? checkIfContains(actualResponse.data, expectedResponse.data)
+          : false;
       }
     }
     if (isValid) {

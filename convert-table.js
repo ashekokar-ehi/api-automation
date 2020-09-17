@@ -1,12 +1,12 @@
 let success = 0, fail = 0;
 
 const checkStatus = (status) => {
-    if(status === 'success'){
-        success++;
-        return'<tr class = "success">';
-    }else{
+    if(status === 'failure'){
         fail++;
-        return '<tr class = "error">';
+        return'<tr class = "error">';
+    }else{
+        success++;
+        return '<tr class = "success">';
     }
 }
 
@@ -20,9 +20,10 @@ const convertTable = (() => {
         html += '</tr>';
         for( let i = 0; i < output.length; i++) {
             html += checkStatus(output[i].result);
-            for( let j in output[i] ) {
-                html += `<td>${output[i][j]}</td>`;
-            }
+            html += `<td>${output[i].name}</td>`;
+            html += `<td>${output[i].result || ""}</td>`;
+            html += `<td>${output[i].expected || ""}</td>`;
+            html += `<td>${output[i].actual || ""}</td>`;
             html += '</tr>';
         }
         html += '</table>';
