@@ -11,11 +11,21 @@ const checkIfContains = (mainObj, subObj) => {
 
 const validateResponse = (() => {
   return (matchType, actualResponse, expectedResponse) => {
-    if (matchType === "matchFull") {
-      return _.isEqual(actualResponse, expectedResponse);
-    } else if (matchType === "contains") {
-      return checkIfContains(actualResponse, expectedResponse);
+    let isValid = true;
+    if (expectedResponse.data) {
+      if (matchType === "matchFull") {
+        isValid = _.isEqual(actualResponse.data, expectedResponse.data);
+      } else if (matchType === "contains") {
+        isValid = checkIfContains(actualResponse.data, expectedResponse.data);
+      }
     }
+    if (isValid) {
+      const props = _.omit(expectedResponse, "data");
+      for (let key in props) {
+        isValid = _.isEqual(props[key], actualResponse[key]) && isValid;
+      }
+    }
+    return isValid;
   };
 })();
 

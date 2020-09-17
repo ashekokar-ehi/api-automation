@@ -10,7 +10,7 @@ const testScenarios = require("./test-scenarios");
 const formatOutput = require("./format-output");
 
 const promises = [];
-const rawdata = fs.readFileSync("scenario.json");
+const rawdata = fs.readFileSync("scenario-all-success.json");
 const scenarios = JSON.parse(rawdata);
 
 let allSucceed = true;
