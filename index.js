@@ -8,6 +8,7 @@ const process = require("process");
 // Custom functions requires
 const testScenarios = require("./test-scenarios");
 const formatOutput = require("./format-output");
+const convertTable = require("./convert-table");
 
 const promises = [];
 const rawdata = fs.readFileSync("scenario-all-success.json");
@@ -26,17 +27,11 @@ scenarios.forEach((scenario) => {
 
 Promise.allSettled(promises).then(() => {
   const data = formatOutput(output);
-  let stringData = "Name, Result, Expected, Actual\n";
-  for (let d of data) {
-    stringData = `${stringData}${d.name}, ${d.result || ""}, ${
-      d.expectedStr || ""
-    }, ${d.actualStr || ""}\n`;
-  }
-  fs.writeFile("test-result.csv", stringData, function (err) {
+  fs.writeFile("test-result.html", convertTable(data), function (err) {
     if (err) {
       return console.log(("Error is:", err));
     }
-    console.log("Output Logged to test-result.csv");
+    console.log("Output Logged to test-result.html");
   });
 
   if (!allSucceed) {

@@ -9,9 +9,9 @@ const tcFormatting = (spacing, obj) => {
       name: `${spacing} ${testCase.name}`,
       result: testCase.result,
       expected: testCase.expected || " ",
-      expectedStr: testCase.expectedStr || " ",
+      // expectedStr: testCase.expectedStr || " ",
       actual: testCase.actual || " ",
-      actualStr: testCase.actualStr || " ",
+      // actualStr: testCase.actualStr || " ",
     };
     testCaseResult.push(oj);
     if (testCase.afterIt) {

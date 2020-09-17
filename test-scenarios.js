@@ -28,15 +28,15 @@ const testScenarios = (testCases, axiosInstance, promises) => {
         } else {
           tcResult.result = "failure";
           tcResult.expected = then.responseBody;
-          tcResult.expectedStr = JSON.stringify(tcResult.expected).replace(
-            /,/g,
-            "::"
-          );
+          // tcResult.expectedStr = JSON.stringify(tcResult.expected).replace(
+          //   /,/g,
+          //   "::"
+          // );
           tcResult.actual = actual;
-          tcResult.actualStr = JSON.stringify(tcResult.actual).replace(
-            /,/g,
-            "::"
-          );
+          // tcResult.actualStr = JSON.stringify(tcResult.actual).replace(
+          //   /,/g,
+          //   "::"
+          // );
           allSucceed = false;
           process.exitCode = 2;
         }

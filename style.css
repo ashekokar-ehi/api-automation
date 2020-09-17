@@ -1,0 +1,19 @@
+table, th, td {border: 1px solid black;}
+
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+  width:50%;
+}
+
+th, td {
+  padding: 10px;
+}
+
+tr.error {
+  color:red;
+}
+
+tr.success {
+  color:green;
+}
