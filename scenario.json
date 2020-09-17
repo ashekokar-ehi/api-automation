@@ -1,0 +1,153 @@
+[
+  {
+    "scenario": "Testing NASA application",
+    "testCases": [
+      {
+        "name": "NASA Image",
+        "given": {
+          "queryParams": {
+            "api_key": "DEMO_KEY"
+          },
+          "bodyParams": {
+            "test": "no required"
+          }
+        },
+        "when": {
+          "type": "get",
+          "endpoint": "https://api.nasa.gov/planetary/apod?api_key={{api_key}}"
+        },
+        "then": {
+          "responseBodyType": "contains",
+          "responseBody": {
+            "status": 200,
+            "data": {
+              "xyz": "asd"
+            }
+          }
+        }
+      },
+      {
+        "name": "NASA Image 1",
+        "given": {
+          "queryParams": {
+            "xyz": "DEMO_KEY"
+          },
+          "bodyParams": {
+            "test": "no required"
+          }
+        },
+        "when": {
+          "type": "get",
+          "endpoint": "https://api.nasa.gov/planetary/123apod?api_key={{xyz}}"
+        },
+        "then": {
+          "responseBodyType": "matchFull",
+          "responseBody": {
+            "status": 401,
+            "data": {
+              "xyz": "asd"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "Testing Identifi Practice endpoints",
+    "authToken": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjgxREI3NzY3NUZGNEJCRDhCM0E2RDg5QzZENDMyQ0M3MTEyMDlEOTYiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJnZHQzWjFfMHU5aXpwdGljYlVNc3h4RWduWlkifQ.eyJuYmYiOjE2MDAyNTM1NTYsImV4cCI6MTYwMDI1NTM1NiwiaXNzIjoiaHR0cHM6Ly9pZC1kdi1pZHAtYXBpLmF6dXJld2Vic2l0ZXMubmV0L2lkZW50aXR5cHJvdmlkZXIiLCJhdWQiOlsiaHR0cHM6Ly9pZC1kdi1pZHAtYXBpLmF6dXJld2Vic2l0ZXMubmV0L2lkZW50aXR5cHJvdmlkZXIvcmVzb3VyY2VzIiwiaWRlbnRpZmlhcGkiXSwiY2xpZW50X2lkIjoiaWRlbnRpZml1aS1kZXYiLCJzdWIiOiJjOWIyYjc2ZS1kZDg3LTQ2OWYtODAxYi02YjhmMTk5OTdjNDMiLCJhdXRoX3RpbWUiOjE2MDAyNTM1NTYsImlkcCI6ImxvY2FsIiwic2lkIjoiZjVjMDlhYjQ4ZmFkN2Q3OWE0YWYyNmIxZGNlMThlMmYiLCJzY29wZSI6WyJvcGVuaWQiLCJwcm9maWxlIiwiaWRlbnRpZmlhcGlzY29wZSJdLCJhbXIiOlsicHdkIl19.QJZWNYVY6FhDa3p8lA7wL_SdJ2m4DKtXoKbQ09y53wrr2MxpVG2zEmbnuQBtXsETOZcKBHXupuD7uaZ21yDAeMg-0uvB1sggfgWWDhf_8FDKFwbU4X-06faGrarKh4WFYZVMKta7iRr8IxTDMw5Nw0REyiwlgouMmqlsWaUMdnqMh6IMSmkY133ac5jp993e56OMrgP2lpRKuEMbpUa1PaJS2QKCrdPij8MMCSG6I8kgxGAcLaEeQskdl6nijLpgQflKetS8bBAFSAur0skS6MWAkNwFzXPMw0zwXO4Uf33u0MtRWDQym25Jy57_4sYaVAXTqCVeZdxvuOnObScPsA",
+    "testCases": [
+      {
+        "name": "Practice Aggregation Endpoint",
+        "given": {
+          "queryParams": {
+            "populationId": "04f8aa14-0dc8-4a69-c92a-08d854ab3582"
+          }
+        },
+        "when": {
+          "type": "get",
+          "endpoint": "https://id-dv-practice-api.azurewebsites.net/PanelInsights/Populations/{{populationId}}/Aggregations"
+        },
+        "then": {
+          "responseBodyType": "contains",
+          "responseBody": {
+            "status": 200,
+            "data": {
+              "xyz": "asd"
+            }
+          }
+        },
+        "afterIt": [
+          {
+            "name": "Practice Aggregation Endpoint",
+            "given": {
+              "queryParams": {
+                "populationId": "04f8aa14-0dc8-4a69-c92a-08d854ab3582"
+              }
+            },
+            "when": {
+              "type": "get",
+              "endpoint": "https://id-dv-practice-api.azurewebsites.net/PanelInsights/Populations/{{populationId}}/Aggregations"
+            },
+            "then": {
+              "responseBodyType": "contains",
+              "responseBody": {
+                "status": 200,
+                "data": {
+                  "xyz": "asd"
+                }
+              }
+            }
+          },
+          {
+            "name": "Practice Aggregation Endpoint",
+            "given": {
+              "queryParams": {
+                "populationId": "04f8aa14-0dc8-4a69-c92a-08d854ab3582"
+              }
+            },
+            "when": {
+              "type": "get",
+              "endpoint": "https://id-dv-practice-api.azurewebsites.net/Populations/{{populationId}}"
+            },
+            "then": {
+              "responseBodyType": "contains",
+              "responseBody": {
+                "status": 200,
+                "data": {
+                  "xyz": "asd"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Practice Roster Patient POST call",
+        "given": {
+          "bodyParams": {
+            "pageNumber": 1,
+            "pageSize": 25,
+            "orderBy": "patientName desc",
+            "populationId": "04f8aa14-0dc8-4a69-c92a-08d854ab3582",
+            "isRafEligible": false,
+            "hasCareGaps": false,
+            "filters": {}
+          }
+        },
+        "when": {
+          "type": "post",
+          "endpoint": "https://id-dv-practice-api.azurewebsites.net/Patients/RosterPatients"
+        },
+        "then": {
+          "responseBodyType": "contains",
+          "responseBody": {
+            "status": 200,
+            "data": {
+              "xyz": "asd"
+            }
+          }
+        }
+      }
+    ]
+  }
+]
