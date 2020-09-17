@@ -18,7 +18,7 @@ const testScenarios = (testCases, axiosInstance, promises) => {
       })
       .catch((error) => {
         actual = error.message; // JSON.stringify(error);
-        isSuccessful = validateResponse(then.responseBodyType, response.data, then.responseBody.data);
+        isSuccessful = validateResponse(then.responseBodyType, error.response.data, then.responseBody.data);
       })
       .finally(() => {
         if (isSuccessful) {
