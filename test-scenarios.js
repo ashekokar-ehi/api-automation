@@ -14,17 +14,29 @@ const testScenarios = (testCases, axiosInstance, promises) => {
     const promise = axiosInstance[type](endpoint, given.bodyParams)
       .then((response) => {
         actual = response.data;
-        isSuccessful = validateResponse(then.responseBodyType, response, then.responseBody);
+        isSuccessful = validateResponse(
+          then.responseBodyType,
+          response,
+          then.responseBody
+        );
       })
       .catch((error) => {
         actual = error.message; // JSON.stringify(error);
-        isSuccessful = validateResponse(then.responseBodyType, error.response, then.responseBody);
+        isSuccessful = validateResponse(
+          then.responseBodyType,
+          error.response,
+          then.responseBody
+        );
       })
       .finally(() => {
         if (isSuccessful) {
           tcResult.result = "success";
           afterIt &&
-            (tcResult.afterIt = testScenarios(afterIt, axiosInstance, promise));
+            (tcResult.afterIt = testScenarios(
+              afterIt,
+              axiosInstance,
+              promises
+            ));
         } else {
           tcResult.result = "failure";
           tcResult.expected = then.responseBody;

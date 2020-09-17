@@ -84,7 +84,7 @@
   },
   {
     "scenario": "Testing Identifi Practice endpoints",
-    "authToken": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjgxREI3NzY3NUZGNEJCRDhCM0E2RDg5QzZENDMyQ0M3MTEyMDlEOTYiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJnZHQzWjFfMHU5aXpwdGljYlVNc3h4RWduWlkifQ.eyJuYmYiOjE2MDAzMzA3ODEsImV4cCI6MTYwMDMzMjU4MSwiaXNzIjoiaHR0cHM6Ly9pZC1kdi1pZHAtYXBpLmF6dXJld2Vic2l0ZXMubmV0L2lkZW50aXR5cHJvdmlkZXIiLCJhdWQiOlsiaHR0cHM6Ly9pZC1kdi1pZHAtYXBpLmF6dXJld2Vic2l0ZXMubmV0L2lkZW50aXR5cHJvdmlkZXIvcmVzb3VyY2VzIiwiaWRlbnRpZmlhcGkiXSwiY2xpZW50X2lkIjoiaWRlbnRpZml1aS1kZXYiLCJzdWIiOiJjOWIyYjc2ZS1kZDg3LTQ2OWYtODAxYi02YjhmMTk5OTdjNDMiLCJhdXRoX3RpbWUiOjE2MDAzMjk1NTUsImlkcCI6ImxvY2FsIiwic2lkIjoiYWRiNmQxM2FhNTQ3ZTM0YTlkZTAwMDJlZDAyZTllOWQiLCJzY29wZSI6WyJvcGVuaWQiLCJwcm9maWxlIiwiaWRlbnRpZmlhcGlzY29wZSJdLCJhbXIiOlsicHdkIl19.WlcQvjcPM5zUlmRS2Kvq1MrnRh2xOSUu8KezKgwDr2epfNnvlXIV9-XTpScqhoXnvIZGiNTfJSQZ3lBmzt4tAy5QRKrx_Eqw71ddSi5B5s9S7KNIXBbS2Xi8BiFuxGJYmVHzzWKE1M5wiGkEFwTfr_wKrqXC1hFGCc5uRDMvOaE55hgX3BxGMj82mQXkQz-zUzqkVluJ4WdbKXXbvsTfGGnr360FBMdJe2YMh6NmpN4xM5otokDlN8VR7gFUB6cCIjSDGoD5uwfCrBp1bOr9fpIT_w2J1iDmbQ2s3EDnfamAdq3dhRmATITQ9fcLyssaH5DGJiVbkR7qCyXm4lJ6uw",
+    "authToken": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjgxREI3NzY3NUZGNEJCRDhCM0E2RDg5QzZENDMyQ0M3MTEyMDlEOTYiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJnZHQzWjFfMHU5aXpwdGljYlVNc3h4RWduWlkifQ.eyJuYmYiOjE2MDAzMzI5MjAsImV4cCI6MTYwMDMzNDcyMCwiaXNzIjoiaHR0cHM6Ly9pZC1kdi1pZHAtYXBpLmF6dXJld2Vic2l0ZXMubmV0L2lkZW50aXR5cHJvdmlkZXIiLCJhdWQiOlsiaHR0cHM6Ly9pZC1kdi1pZHAtYXBpLmF6dXJld2Vic2l0ZXMubmV0L2lkZW50aXR5cHJvdmlkZXIvcmVzb3VyY2VzIiwiaWRlbnRpZmlhcGkiXSwiY2xpZW50X2lkIjoiaWRlbnRpZml1aS1kZXYiLCJzdWIiOiJjOWIyYjc2ZS1kZDg3LTQ2OWYtODAxYi02YjhmMTk5OTdjNDMiLCJhdXRoX3RpbWUiOjE2MDAzMjk1NTUsImlkcCI6ImxvY2FsIiwic2lkIjoiYWRiNmQxM2FhNTQ3ZTM0YTlkZTAwMDJlZDAyZTllOWQiLCJzY29wZSI6WyJvcGVuaWQiLCJwcm9maWxlIiwiaWRlbnRpZmlhcGlzY29wZSJdLCJhbXIiOlsicHdkIl19.MmFCG8xs4Kwb_F7vZH2CstbiMM4BEnoMSJqTI1Nudibfs1riHiODbvovjM5vcOsRJf6cFKFVuZACWha7gCy7ceTEkNe7QxsH_a5nA3lRkJm1qmjv_PVpSx_vytwRxwqEiH3DRAPv_Gml2SvwuW3pDptwRljfxuGKj8h3lx5cSCUMjhrdcfBha6pFXi-bKBFIDHJp-edcZqiNGfcRHSGMkWu5I88wZEC0kwo7n2sqVo3Q7a2LBnk0aXdEFw_ukYLLeccC7YGmXov8DC79nNgbMwaVxi8htESh3u8EfB7ULfIFCXcs0BDRa8nAlcdKbOHjAtgAOyydGYD76I0NOEnFtA",
     "testCases": [
       {
         "name": "Practice Aggregation Endpoint match full test",
@@ -176,7 +176,33 @@
               }
             }
           }
-        }
+        },
+        "afterIt": [
+          {
+            "name": "AfterIt: Practice Aggregation Endpoint CONTAINS test",
+            "given": {
+              "queryParams": {
+                "populationId": "04f8aa14-0dc8-4a69-c92a-08d854ab3582"
+              }
+            },
+            "when": {
+              "type": "get",
+              "endpoint": "https://id-dv-practice-api.azurewebsites.net/PanelInsights/Populations/{{populationId}}/Aggregations"
+            },
+            "then": {
+              "responseBodyType": "contains",
+              "responseBody": {
+                "status": 200,
+                "data": {
+                  "data": {
+                    "careManagementOpportunities": { "opportunityTypeId": 2 },
+                    "riskAdjustmentOpportunities": { "opportunityTypeId": 3 }
+                  }
+                }
+              }
+            }
+          }
+        ]
       }
     ]
   }
