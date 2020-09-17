@@ -22,19 +22,32 @@ scenarios.forEach((scenario) => {
     (axiosInstance.defaults.headers.common["Authorization"] =
       scenario.authToken);
 
-  output[scenario.scenario] = testScenarios(scenario.testCases, axiosInstance, promises);
+  output[scenario.scenario] = testScenarios(
+    scenario.testCases,
+    axiosInstance,
+    promises
+  );
 });
 
-Promise.allSettled(promises).then(() => {
-  const data = formatOutput(output);
-  fs.writeFile("test-result.html", convertTable(data), function (err) {
-    if (err) {
-      return console.log(("Error is:", err));
+// Tweak for afterIt(setTimeout)
+setTimeout(() => {
+  Promise.allSettled(promises).then(() => {
+    const data = formatOutput(output);
+    // let stringData = "Name, Result, Expected, Actual\n";
+    // for (let d of data) {
+    //   stringData = `${stringData}${d.name}, ${d.result || ""}, ${
+    //     d.expectedStr || ""
+    //   }, ${d.actualStr || ""}\n`;
+    // }
+    fs.writeFile("test-result.html", convertTable(data), function (err) {
+      if (err) {
+        return console.log(("Error is:", err));
+      }
+      console.log("Output Logged to test-result.html");
+    });
+
+    if (!allSucceed) {
+      console.log("One or more test cases are failing");
     }
-    console.log("Output Logged to test-result.html");
   });
-
-  if (!allSucceed) {
-    console.log("One or more test cases are failing");
-  }
-});
+}, 3000);
