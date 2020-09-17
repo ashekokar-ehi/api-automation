@@ -14,11 +14,11 @@ const testScenarios = (scenario, axiosInstance, promises) => {
     const promise = axiosInstance[type](endpoint, given.bodyParams)
       .then((response) => {
         actual = response.data;
-        isSuccessful = validateResponse(response, then);
+        isSuccessful = validateResponse(then.responseBodyType, response.data, then.responseBody.data);
       })
       .catch((error) => {
         actual = error.message; // JSON.stringify(error);
-        isSuccessful = validateResponse(error, then);
+        isSuccessful = validateResponse(then.responseBodyType, response.data, then.responseBody.data);
       })
       .finally(() => {
         if (isSuccessful) {
