@@ -35,7 +35,7 @@ const formatOutput = (output) => {
     data = [...data, ...tcFormatting("---", output[op])];
   }
 
-  console.table(data, ["name", "result", "expected", "actual"]);
+  // console.table(data, ["name", "result", "expected", "actual"]);
   return data;
 };
 

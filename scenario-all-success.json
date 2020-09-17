@@ -1,6 +1,6 @@
 [
   {
-    "scenario": "Testing NASA application",
+    "scenario": "Testing NASA application(token not required)",
     "testCases": [
       {
         "name": "NASA Image Match Full Test",
@@ -83,8 +83,8 @@
     ]
   },
   {
-    "scenario": "Testing Identifi Practice endpoints",
-    "authToken": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjgxREI3NzY3NUZGNEJCRDhCM0E2RDg5QzZENDMyQ0M3MTEyMDlEOTYiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJnZHQzWjFfMHU5aXpwdGljYlVNc3h4RWduWlkifQ.eyJuYmYiOjE2MDAzMzg1MzUsImV4cCI6MTYwMDM0MDMzNSwiaXNzIjoiaHR0cHM6Ly9pZC1kdi1pZHAtYXBpLmF6dXJld2Vic2l0ZXMubmV0L2lkZW50aXR5cHJvdmlkZXIiLCJhdWQiOlsiaHR0cHM6Ly9pZC1kdi1pZHAtYXBpLmF6dXJld2Vic2l0ZXMubmV0L2lkZW50aXR5cHJvdmlkZXIvcmVzb3VyY2VzIiwiaWRlbnRpZmlhcGkiXSwiY2xpZW50X2lkIjoiaWRlbnRpZml1aS1sb2NhbGhvc3QtZGV2aWRwIiwic3ViIjoiYzliMmI3NmUtZGQ4Ny00NjlmLTgwMWItNmI4ZjE5OTk3YzQzIiwiYXV0aF90aW1lIjoxNjAwMzM2NjUwLCJpZHAiOiJsb2NhbCIsInNpZCI6IjVkYzI5Y2U4ZWM1ZDA4MGFiZDUwNTk4NTc5NmY5Zjc1Iiwic2NvcGUiOlsib3BlbmlkIiwiaWRlbnRpZmlhcGlzY29wZSJdLCJhbXIiOlsicHdkIl19.rAuW0nkpJ54w1PlK759XNcHas93XBM3s44qvrhegODMeWJYPkzHRBNu9J16PQTgU3hXDEeuQXgaAjQRWpQYYvft0nidWXX6vfbc85OAkO-QjS4d0QRy8o04fH8GHWkNFD825maiAfHUgdGEuoizfoPGUGX47BxJpUiu-tHNJYz_-VeYZqEkVdrFGZlLZiWUfCfFmANwGTBzZOlV2-svxLIzuPxUAh6VC8PDkZUcb5HnurTcD5hMtWkTLrWxMob7VYWOAqTgy2Tc8aCMjplVpxSdAGrcjpLJkxVkZSZ9oFE6GniViJg2EJ5x7lZ1-BpvY8itaeVnKYmff0R13ymSlTA",
+    "scenario": "Testing Identifi Practice endpoints(token required)",
+    "authToken": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjgxREI3NzY3NUZGNEJCRDhCM0E2RDg5QzZENDMyQ0M3MTEyMDlEOTYiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJnZHQzWjFfMHU5aXpwdGljYlVNc3h4RWduWlkifQ.eyJuYmYiOjE2MDAzNDI5ODYsImV4cCI6MTYwMDM0NDc4NiwiaXNzIjoiaHR0cHM6Ly9pZC1kdi1pZHAtYXBpLmF6dXJld2Vic2l0ZXMubmV0L2lkZW50aXR5cHJvdmlkZXIiLCJhdWQiOlsiaHR0cHM6Ly9pZC1kdi1pZHAtYXBpLmF6dXJld2Vic2l0ZXMubmV0L2lkZW50aXR5cHJvdmlkZXIvcmVzb3VyY2VzIiwiaWRlbnRpZmlhcGkiXSwiY2xpZW50X2lkIjoiaWRlbnRpZml1aS1kZXYiLCJzdWIiOiJjOWIyYjc2ZS1kZDg3LTQ2OWYtODAxYi02YjhmMTk5OTdjNDMiLCJhdXRoX3RpbWUiOjE2MDAzMzY2NTAsImlkcCI6ImxvY2FsIiwic2lkIjoiNWRjMjljZThlYzVkMDgwYWJkNTA1OTg1Nzk2ZjlmNzUiLCJzY29wZSI6WyJvcGVuaWQiLCJwcm9maWxlIiwiaWRlbnRpZmlhcGlzY29wZSJdLCJhbXIiOlsicHdkIl19.CZUgs9BFSIG5iXbJxnuH2s-MLVA2vKKRLF7EoJOYAgw5qHJ8aRYZp5G6cjCIL9wwFsUqONdqmyw31jA7YSfANez35fKzB1C6gZX9txMQakWm_5nu7jl5x8ZfGaiXfHjn1OMRn4XLHGr7Z1HkBYDhNEm8SPbt66g8NQABPzxBGDJIevCoICPbXeYwGSRT7NhPY1s2rwyyxkfjr_T9kJ042vH6F5LD36LzTeWTa0kmBE2FB2VYxC51NqEprZ5dLOOti3mIASAibIHLEdOeKonNeXN3DY_7CMhI8P95JkCvPDtort-L00rdCzbFvVEvFtWxH7-mHYeyeK1Riqtp7rUBAw",
     "testCases": [
       {
         "name": "Practice Aggregation Endpoint match full test",
@@ -126,7 +126,7 @@
           "endpoint": "https://id-dv-practice-api.azurewebsites.net/PanelInsights/Populations/{{populationId}}/Aggregations"
         },
         "then": {
-          "responseBodyType": "contains",
+          "responseBodyType": "matchFull",
           "responseBody": {
             "status": 200,
             "data": {
